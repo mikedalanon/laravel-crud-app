@@ -6,6 +6,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Http\RedirectResponse;
 
 class StudentController extends Controller
 {
@@ -64,5 +65,13 @@ class StudentController extends Controller
 
         return redirect('/students')
         ->with('success', 'Student updated successfully.');
+    }
+
+    public function destroy(Student $student): RedirectResponse
+    {
+        $student->delete();
+
+        return redirect('/students')
+            ->with('success', 'Student deleted successfully.');
     }
 }
