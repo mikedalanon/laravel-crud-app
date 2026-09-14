@@ -1,5 +1,6 @@
 import { store } from "@/actions/App/Http/Controllers/StudentController";
 import { useForm } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 
 export default function Create() {
     const { data, setData, post, errors } = useForm({
@@ -17,9 +18,12 @@ export default function Create() {
             <h1 className="text-2xl font-bold px-4 py-2 bg-amber-300 rounded">
                 Create Student
             </h1>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer">
+            <Link
+                href="/students"
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer"
+            >
                 Back to Students
-            </button>
+            </Link>
             <form onSubmit={submit}>
                 <div className="flex flex-col gap-2">
                     <label>Name</label>
@@ -53,7 +57,7 @@ export default function Create() {
 
                 <button
                     type="submit"
-                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 cursor-pointer"
+                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 cursor-pointer mt-2"
                 >
                     Save Student
                 </button>
